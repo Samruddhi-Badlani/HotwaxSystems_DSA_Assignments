@@ -61,7 +61,97 @@ public class BinaryTree {
 			preorderTraversal(root.right);
 			
 		}
+		
+		
 	}
+	
+	public void deleteDeepest(TreeNode root, TreeNode delNode) {
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+	    q.add(root);
+	     
+	    TreeNode temp = null;
+		 while (!q.isEmpty())
+		    {
+		        temp = q.peek();
+		        q.remove();
+		         
+		        if (temp == delNode)
+		        {
+		            temp = null;
+		            return;
+		             
+		        }
+		        if (temp.right!=null)
+		        {
+		            if (temp.right == delNode)
+		            {
+		                temp.right = null;
+		                return;
+		        }
+		        else
+		            q.add(temp.right);
+		    }
+		        if (temp.left != null)
+		        {
+		            if (temp.left == delNode)
+		            {
+		                temp.left = null;
+		                return;
+		            }
+		            else
+		                q.add(temp.left);
+		        }
+		    }
+	}
+	public void delete(int value) {
+		
+		if (root == null)
+	        return;
+	         
+	    if (root.left == null && root.right == null)
+	    {
+	        if (root.key == value)
+	        {
+	              root=null;
+	              return;
+	        }
+	        else
+	            return;
+	    }
+	    Queue<TreeNode> q = new LinkedList<TreeNode>();
+	    q.add(root);
+	    TreeNode temp = null, keyNode = null;
+	     
+	    // Do level order traversal until
+	    // we find key and last node.
+	    while (!q.isEmpty())
+	    {
+	        temp = q.peek();
+	        q.remove();
+	         
+	        if (temp.key == value)
+	            keyNode = temp;
+	 
+	        if (temp.left != null)
+	            q.add(temp.left);
+	 
+	        if (temp.right != null)
+	            q.add(temp.right);
+	    }
+	    if (keyNode != null)
+	    {
+	        int x = temp.key;
+	        deleteDeepest(root, temp);
+	        keyNode.key = x;
+	    }
+		
+	}
+	
+	public boolean search(int value) {
+		boolean find = false ;
+		return find;
+	}
+	
 	public static void main(String[] args) {
 		BinaryTree myBinaryTree = new BinaryTree();
 		TreeNode root = new TreeNode(1);
@@ -72,6 +162,13 @@ public class BinaryTree {
 		root.left.right = new TreeNode(5);
 		root.right.left = new TreeNode(6);
 		root.right.right = new TreeNode(7);
+
 		myBinaryTree.preorderTraversal(root);
+		
+		myBinaryTree.delete(1);
+		System.out.println();
+		myBinaryTree.preorderTraversal(root);
+
+		
 	}
 }
