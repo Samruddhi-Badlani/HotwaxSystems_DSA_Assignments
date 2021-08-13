@@ -1,9 +1,9 @@
 
-public class LinkedList {
+public class MyLinkedLIst {
 	
 	Node headNode;
 	
-	public LinkedList() {
+	public MyLinkedLIst() {
 	
 		// TODO Auto-generated constructor stub
 		headNode = null;
@@ -148,7 +148,7 @@ public class LinkedList {
 	}
 	
 	public static void main(String[] args) {
-		LinkedList list = new LinkedList();
+		MyLinkedLIst list = new MyLinkedLIst();
 		list.addAtBegin(40);
 		list.add(1);
 		
