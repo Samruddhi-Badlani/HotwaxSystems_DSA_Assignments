@@ -206,6 +206,7 @@ public class BinaryTree {
 			System.out.println("3 is not  present ");
 		}
 		
+		myBinaryTree.preorderTraversal(root);
 		
 	}
 }
