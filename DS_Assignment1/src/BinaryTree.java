@@ -147,9 +147,28 @@ public class BinaryTree {
 		
 	}
 	
-	public boolean search(int value) {
-		boolean find = false ;
-		return find;
+	public boolean search(TreeNode root,int value) {
+		
+		if (root == null)
+	        return false;
+	 
+	    if (root.key == value)
+	        return true;
+	 
+	    // then recur on left sutree /
+	    boolean res1 = search(root.left, value);
+	   
+	    // node found, no need to look further
+	    if(res1) {
+	    	return true;
+	    }
+	 
+	    // node is not found in left,
+	    // so recur on right subtree /
+	    boolean res2 = search(root.right, value);
+	 
+	    return res2;
+	
 	}
 	
 	public static void main(String[] args) {
@@ -168,7 +187,25 @@ public class BinaryTree {
 		myBinaryTree.delete(1);
 		System.out.println();
 		myBinaryTree.preorderTraversal(root);
-
+		System.out.println();
+		
+		if(myBinaryTree.search(root, 20)) {
+			
+			System.out.println("20 is  present ");
+		}
+		else {
+			
+			System.out.println("20 is not  present ");
+		}
+		if(myBinaryTree.search(root, 3)) {
+			
+			System.out.println("3 is  present ");
+		}
+		else {
+			
+			System.out.println("3 is not  present ");
+		}
+		
 		
 	}
 }
