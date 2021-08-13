@@ -127,7 +127,20 @@ public class LinkedList {
 		}
 	}
 		
-	
+	// Searching for  a value in linkedlist 
+	public boolean search(int value) {
+		boolean find = false ;
+		Node tempNode = headNode;
+		while(tempNode != null) {
+			
+			if(tempNode.item  == value) {
+				find = true;
+				break;
+			}
+			tempNode = tempNode.next;
+		}
+		return find ;
+	}
 		
 	// Print the list 
 	public void print() {
@@ -161,6 +174,10 @@ public class LinkedList {
 		list.deleteValue(45);
 		list.deleteValue(20);
 		list.deleteValue(40);
+		
+		if(list.search(1) == true) {
+			System.out.println("1 is present in the list ");
+		}
 		
 		
 		list.print();
