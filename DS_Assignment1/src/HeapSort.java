@@ -59,13 +59,14 @@ public class HeapSort {
 	// Driver code
 	public static void main(String args[])
 	{
-		int arr[] = { 12, 11, 13, 5, 6, 7 };
-		int n = arr.length;
+		
+		int array[] = {10,21,13,4,5};
+		int n = array.length;
 
 		HeapSort ob = new HeapSort();
-		ob.sort(arr);
+		ob.sort(array);
 
 		System.out.println("Sorted array is");
-		printArray(arr);
+		printArray(array);
 	}
 }
