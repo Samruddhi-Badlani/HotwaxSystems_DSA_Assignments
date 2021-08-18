@@ -36,7 +36,7 @@ public class Array5 {
 	 
 	    public static void main(String[] args)
 	    {
-	        int[] A = { 1, 3, 5, 6, 8, 9, 15 };
+	        int[] A = { 1, 3, 8, 6, 8, 9, 15 };
 	 
 	        findAllTriplets(A);
 	    }
